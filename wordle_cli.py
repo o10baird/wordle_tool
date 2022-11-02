@@ -9,17 +9,18 @@ import math
 
 def best_words(words):
     distinct_words = []
-    for word in words:
-        distinct_words.append(list(set(word)))
+    for word in words: # create a list of lists containing the distinct letters in each word
+        distinct_words.append(list(set(word))) 
     letter_counter = {}
-    for word in distinct_words:
-        for letter in word:
+    for distinct_word in distinct_words:
+        for letter in distinct_word:
             if letter in letter_counter:
                 letter_counter[letter] += 1
             else:
                 letter_counter[letter] = 0
     word_values = []
-    for word in distinct_words:
+    for distict_word in distinct_words:
+        # print(word)
         temp_value = 0
         for letter in word:
             temp_value += letter_counter[letter]
@@ -44,6 +45,19 @@ def remove_word_contain_letters(words, first_word):
             result_word.append(word)
     return result_word
 
+def find_next_word_list(words, previous_word, results):
+    word_list = []
+    previous_word_list = [char for char in previous_word]
+    previous_results_list = [num for num in results]
+    previous_word_results = zip(previous_word_list, previous_results_list)
+    
+    for letter in words:
+        for by_letter_result in previous_word_results:
+            if by_letter_result[1] == 0 AND by_letter_result[0] :
+
+
+
+
 if __name__ == '__main__':
     words = []
     with open('data\words.txt') as f:
@@ -52,6 +66,7 @@ if __name__ == '__main__':
     distinct_words = []
     for word in words:
         distinct_words.append(list(set(word)))
+    print(distinct_words)
     letter_counter = {}
     for word in distinct_words:
         for letter in word:
@@ -61,6 +76,10 @@ if __name__ == '__main__':
                 letter_counter[letter] = 0
     word_values = best_words(words)
     first_word = get_best_word(words, word_values)
+    print(f"First Word: {first_word}")
+
+    results = input("Enter the results of the first word as a sequence of numbers. \n0 --> not in word (grey) \n1 --> in word (yellow) \n3--> in correct position (green)\n")
+    
     second_words = remove_word_contain_letters(words, first_word)
     second_values = best_words(second_words)
     second_word = get_best_word(second_words, second_values)
