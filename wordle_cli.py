@@ -3,15 +3,15 @@ Original Work by --> Fahmi Nurfikri
 https://medium.com/towards-data-science/how-to-find-the-best-wordle-first-combination-words-with-python-ded4b0679a5
 '''
 
-import pandas as pd
 import numpy as np
-import math
+import datetime
+import csv
 
-def best_words(words):
+def best_words(words: list) -> list:
     distinct_words = []
     for word in words: # create a list of lists containing the distinct letters in each word
         distinct_words.append(list(set(word))) 
-    letter_counter = {}
+    letter_counter = {} #dictionary with letter as key and number of times it appears as value
     for distinct_word in distinct_words:
         for letter in distinct_word:
             if letter in letter_counter:
@@ -19,7 +19,7 @@ def best_words(words):
             else:
                 letter_counter[letter] = 0
     word_values = []
-    for distict_word in distinct_words:
+    for word in distinct_words:
         # print(word)
         temp_value = 0
         for letter in word:
@@ -27,96 +27,141 @@ def best_words(words):
         word_values.append(temp_value)
     return word_values
 
-def get_best_word(words, word_values):
-    return words[np.argmax(word_values)]
-
-def remove_word_contain_letters(words, first_word):
-    result_word = []
-    first_word_list = list(set(first_word))
-    
-    for word in words:
-        in_word = False
-        i = 0
-        while i < len(first_word_list) and not in_word:
-            if first_word_list[i] in word:
-                in_word = True
-            i += 1
-        if not in_word:
-            result_word.append(word)
-    return result_word
-
-def find_next_word_list(words, previous_word, results):
-    word_list = []
-    previous_word_list = [char for char in previous_word]
-    previous_results_list = [num for num in results]
-    previous_word_results = zip(previous_word_list, previous_results_list)
-    
-    for letter in words:
-        for by_letter_result in previous_word_results:
-            if by_letter_result[1] == 0 AND by_letter_result[0] :
-
-
-if __name__ == '__main__':
-    words = []
-    with open('data\words.txt') as f:
-        words = [line.rstrip() for line in f]
-        
+def get_word_values(words: list, greens_dict: dict) -> list:
     distinct_words = []
+    letter_counter = greens_dict.copy()
     for word in words:
         distinct_words.append(list(set(word)))
-    print(distinct_words)
-    letter_counter = {}
-    for word in distinct_words:
-        for letter in word:
+    for distinct_word in distinct_words:
+        for letter in distinct_word:
             if letter in letter_counter:
                 letter_counter[letter] += 1
             else:
                 letter_counter[letter] = 0
-    word_values = best_words(words)
-    first_word = get_best_word(words, word_values)
-    print(f"First Word: {first_word}")
-
-    results = input("Enter the results of the first word as a sequence of numbers. \n0 --> not in word (grey) \n1 --> in word (yellow) \n3--> in correct position (green)\n")
-    
-    second_words = remove_word_contain_letters(words, first_word)
-    second_values = best_words(second_words)
-    second_word = get_best_word(second_words, second_values)
-    values = best_words(words)
-    values_index = np.argsort(values)[::-1]
-    best_val = 0
-    best_word_list = []
-    top_words = sorted(values, reverse=True)
-    for i, idx in enumerate(values_index):
-        best_word = words[idx]
-        second_words = remove_word_contain_letters(words, best_word)
-        second_values = best_words(second_words)
-        second_best_word = get_best_word(second_words, second_values)
+    word_values = []
+    for word in distinct_words:
         temp_value = 0
-        for letter in second_best_word:
+        for letter in word:
             temp_value += letter_counter[letter]
-        if temp_value + top_words[i] >= best_val:
-            best_val = temp_value + top_words[i]
-            best_word_list.append([best_word, second_best_word])
-            
-    letter_list =['r', 'o', 'a', 's', 't', 'l', 'i', 'n', 'e', 's']
-    letter_value = {}
-    for letter in letter_list:
-        letter_counter = {}
-        for i in range(len(letter_list)//2):
-            loc_counter = 0
-            for j in range(len(words)):
-                if words[j][i] == letter:
-                    loc_counter += 1
-            letter_counter[str(i)] = loc_counter
-        letter_value[letter] = letter_counter
-        
-    result_list = []
-    for i in range(len(best_word_list)):
-        word_value = 0
-        for word in best_word_list[i]:
-            for j, letter in enumerate(word):
-                if letter in letter_value:
-                    word_value += letter_value[letter][str(j)]
-        result_list.append(word_value)
-    result_index = np.argsort(result_list)[::-1]
-    print(best_word_list[result_index[0]])
+        word_values.append(temp_value)
+    return word_values
+
+    pass
+
+def get_best_word(words, word_values):
+    return words[np.argmax(word_values)]
+
+
+def find_next_word_list(words: list, previous_word: str, results: str) -> list:
+    func_word_list = words.copy()
+    previous_word_chars = [char for char in previous_word]
+    previous_results_list = [num for num in results]
+    previous_word_results = zip(previous_word_chars, previous_results_list)
+    print(f"Starting Word List Length --> {len(words)}")
+    for word in words:
+        for i in range(5):
+            num = previous_results_list[i]
+            char = previous_word_chars[i]
+            if char == word[i] and num == '0': # remove words that do not match grey letters
+                func_word_list.remove(word)
+                # print(f"Removed {word} from list")
+                break
+            elif num == '2' and char != word[i]: # remove words without green letters
+                func_word_list.remove(word)
+                # print(f"Removed {word} from list")
+                break
+            elif num == '1' and char == word[i]: # remove words with yellow letters in the wrong position
+                func_word_list.remove(word)
+                # print(f"Removed {word} from list")
+                break
+    print(f"Ending Word List Length --> {len(func_word_list)}")
+    return func_word_list
+
+
+
+def update_greens(guessed_word: str, results: str) -> dict:
+    greens_dict = {}
+    guessed_word_chars = [char for char in guessed_word]
+    results_list = [num for num in results]
+    word_results = zip(guessed_word_chars, results_list)
+    for char, num in word_results:
+        if num == '2':
+            if char in greens_dict:
+                greens_dict[char] -= 1
+            else:
+                greens_dict[char] = -1
+    return greens_dict
+
+
+if __name__ == '__main__':
+    words = []
+    with open('data\words.txt') as f: # create a list of words from the input file
+        words = [line.rstrip() for line in f]
+
+    word_values = best_words(words)
+    guess = get_best_word(words, word_values)
+    print(f"First Word: {guess}")
+    guess_num = 1
+    while True:
+        try:
+            results = str(input("Enter the results of the first word as a sequence of numbers. \n0 --> not in word (grey) \n1 --> in word (yellow) \n2--> in correct position (green)\n")).lower()
+            assert len(results) == 5
+            for num in results:
+                assert num in ['0', '1', '2']
+            break
+        except AssertionError:
+            print("Results must be 5 numbers long and either 0, 1, or 2.")
+    # Create and update a list of green letters
+    greens_dict = update_greens(guess, results)
+
+    # Update the list of words and values given the results of the first guess
+    next_words_list = find_next_word_list(words, guess, results)
+    next_word_values = get_word_values(next_words_list, greens_dict)
+    # print(f"Greens Dictionary\n{greens_dict}")
+    if results == '22222':
+        correct_word = guess
+        print("Got it on the first guess... sure you were not cheating???")
+    else:
+        guess_num = 2
+        while guess_num < 7:
+            guess = get_best_word(next_words_list, next_word_values)
+
+            # User Input
+            print(f"Guess {guess_num} --> {guess}")
+
+            while True:
+                try:
+                    results = str(input("Enter the results of the first word as a sequence of numbers. \n0 --> not in word (grey) \n1 --> in word (yellow) \n2--> in correct position (green)\n")).lower()
+                    assert len(results) == 5
+                    for num in results:
+                        assert num in ['0', '1', '2']
+                    break
+                except AssertionError:
+                    print("Results must be 5 numbers long and either 0, 1, or 2.")
+
+            if results == '22222':
+                correct_word = guess
+                print("Winner, Winner, Chicken Dinner!")
+                break
+            # Update based on user results
+            greens_dict = update_greens(guess, results)
+            # print(f"Greens Dictionary\n{greens_dict}")
+            next_words_list = find_next_word_list(next_words_list, guess, results)
+            next_word_values = get_word_values(next_words_list, greens_dict)
+            guess_num += 1
+
+    if guess_num == 7:
+        correct_word = input("Enter the correct word: ")
+
+    if correct_word in words:
+        words.remove(correct_word)
+
+    with open('data\words.txt', 'w') as f:
+        for word in words:
+            f.write(f"{word}\n")
+    f.close()
+
+    with open(r'data\results.csv', 'a') as f:
+        writer = csv.writer(f)
+        writer.writerow([str(datetime.date.today()), correct_word, guess_num])
+    f.close()
