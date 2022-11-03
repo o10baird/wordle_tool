@@ -56,8 +56,6 @@ def find_next_word_list(words, previous_word, results):
             if by_letter_result[1] == 0 AND by_letter_result[0] :
 
 
-
-
 if __name__ == '__main__':
     words = []
     with open('data\words.txt') as f:
