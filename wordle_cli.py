@@ -62,7 +62,7 @@ def find_next_word_list(words: list, previous_word: str, results: str) -> list:
         for i in range(5):
             num = previous_results_list[i]
             char = previous_word_chars[i]
-            if char == word[i] and num == '0': # remove words that do not match grey letters
+            if char in word and num == '0': # remove words that do not match grey letters
                 func_word_list.remove(word)
                 # print(f"Removed {word} from list")
                 break
