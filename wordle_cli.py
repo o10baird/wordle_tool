@@ -74,6 +74,10 @@ def find_next_word_list(words: list, previous_word: str, results: str) -> list:
                 func_word_list.remove(word)
                 # print(f"Removed {word} from list")
                 break
+            elif num == '1' and char not in word:
+                func_word_list.remove(word)
+                # print(f"Removed {word} from list")
+                break
     print(f"Ending Word List Length --> {len(func_word_list)}")
     return func_word_list
 
