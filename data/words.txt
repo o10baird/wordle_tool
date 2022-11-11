@@ -596,7 +596,6 @@ sweat
 suits
 rains
 sandy
-rainy
 parks
 sadly
 fancy
@@ -981,7 +980,6 @@ kills
 yeast
 erect
 bugle
-medal
 roles
 hound
 snail
@@ -1109,7 +1107,6 @@ genes
 sober
 boast
 tract
-unite
 owing
 thigh
 haiku
