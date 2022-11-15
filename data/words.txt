@@ -1495,7 +1495,6 @@ affix
 brute
 nicer
 undue
-snarl
 merge
 doses
 daddy
