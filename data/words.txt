@@ -247,7 +247,6 @@ boats
 towns
 proud
 court
-prime
 fifty
 plans
 yards
