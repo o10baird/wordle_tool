@@ -131,6 +131,8 @@ if __name__ == '__main__':
             guess = get_best_word(next_words_list, next_word_values)
 
             # User Input
+            if len(next_words_list) < 21:
+                print(f"Possible Words --> {next_words_list}")
             print(f"Guess {guess_num} --> {guess}")
 
             while True:
