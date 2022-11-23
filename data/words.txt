@@ -1,5 +1,4 @@
 which
-there
 about
 would
 these
@@ -247,7 +246,6 @@ boats
 towns
 proud
 court
-prime
 fifty
 plans
 yards
@@ -322,7 +320,6 @@ ended
 chord
 false
 holes
-brave
 apple
 climb
 outer
@@ -682,7 +679,6 @@ hides
 sweep
 spoon
 stern
-maple
 deeds
 rides
 muddy
@@ -1261,7 +1257,6 @@ exert
 dries
 mates
 sworn
-baker
 spice
 oasis
 boils
@@ -2103,7 +2098,6 @@ glues
 lotus
 lurid
 rungs
-valet
 tommy
 yokes
 epics
@@ -2514,7 +2508,6 @@ darns
 slunk
 lefts
 chats
-inane
 vials
 stilt
 rinks
@@ -2907,7 +2900,6 @@ adieu
 annum
 norms
 bobby
-axiom
 setup
 yolks
 terns
@@ -2938,7 +2930,6 @@ mould
 crepe
 kerns
 aloha
-glyph
 azure
 riser
 blest
