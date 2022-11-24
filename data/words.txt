@@ -518,7 +518,6 @@ swift
 faint
 civil
 ghost
-feast
 blade
 limit
 germs
