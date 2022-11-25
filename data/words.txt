@@ -3030,7 +3030,6 @@ scrip
 swash
 aleph
 tinny
-itchy
 wanta
 jowls
 gongs
