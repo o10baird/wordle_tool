@@ -2546,7 +2546,6 @@ idled
 prows
 plait
 malts
-chafe
 cower
 toyed
 chefs
