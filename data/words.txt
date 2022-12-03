@@ -2002,7 +2002,6 @@ weedy
 truer
 ember
 floes
-torso
 wipes
 edict
 sulky
