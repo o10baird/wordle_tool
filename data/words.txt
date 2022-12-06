@@ -1443,7 +1443,6 @@ scoop
 argon
 nudge
 skiff
-amber
 sexes
 rouse
 salts
