@@ -1557,7 +1557,6 @@ lousy
 sawed
 cooky
 murky
-infer
 burly
 waged
 dingy
@@ -1584,7 +1583,6 @@ snips
 hazel
 lined
 cafes
-naive
 wraps
 sized
 piers
