@@ -337,7 +337,6 @@ gases
 doors
 poles
 loose
-apply
 tears
 exact
 brush
