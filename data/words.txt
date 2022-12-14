@@ -148,7 +148,6 @@ stone
 waves
 guess
 dance
-spoke
 cause
 weeks
 lands
@@ -237,7 +236,6 @@ truck
 piano
 upper
 loved
-usual
 faces
 drove
 cabin
