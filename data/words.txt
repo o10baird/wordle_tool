@@ -314,7 +314,6 @@ bells
 magic
 occur
 ended
-chord
 false
 holes
 apple
