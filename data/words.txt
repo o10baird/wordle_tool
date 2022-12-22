@@ -2152,7 +2152,6 @@ eases
 meted
 chasm
 longs
-excel
 taffy
 impel
 savor
