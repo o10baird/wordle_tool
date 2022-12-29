@@ -9,7 +9,8 @@ import csv
 
 def best_words(words: list) -> list:
     distinct_words = []
-    for word in words: # create a list of lists containing the distinct letters in each word
+    # create a list of lists containing the distinct letters in each word
+    for word in words: 
         distinct_words.append(list(set(word))) 
     letter_counter = {} #dictionary with letter as key and number of times it appears as value
     for distinct_word in distinct_words:
@@ -56,7 +57,6 @@ def find_next_word_list(words: list, previous_word: str, results: str) -> list:
     func_word_list = words.copy()
     previous_word_chars = [char for char in previous_word]
     previous_results_list = [num for num in results]
-    previous_word_results = zip(previous_word_chars, previous_results_list)
     print(f"Starting Word List Length --> {len(words)}")
     for word in words:
         for i in range(5):
