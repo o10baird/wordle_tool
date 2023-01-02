@@ -527,7 +527,6 @@ brick
 claws
 beads
 beast
-skirt
 cakes
 lions
 frogs
