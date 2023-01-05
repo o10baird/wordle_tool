@@ -1046,7 +1046,6 @@ slips
 troop
 bolts
 suite
-sleek
 quilt
 tramp
 blaze
