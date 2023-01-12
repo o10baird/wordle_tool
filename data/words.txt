@@ -1559,7 +1559,6 @@ humps
 rumor
 horde
 swiss
-leapt
 opium
 slime
 afire
