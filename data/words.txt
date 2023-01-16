@@ -2025,7 +2025,6 @@ smirk
 bores
 bunny
 surly
-frock
 purer
 milks
 mired
