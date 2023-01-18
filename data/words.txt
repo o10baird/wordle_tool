@@ -3571,7 +3571,6 @@ namer
 jowly
 pukes
 haled
-chard
 duffs
 bruin
 reuse
