@@ -341,7 +341,6 @@ minor
 faith
 tests
 items
-worry
 hoped
 strip
 begun
