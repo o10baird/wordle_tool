@@ -2233,7 +2233,6 @@ scows
 baled
 hovel
 lavas
-crave
 optic
 welts
 busts
