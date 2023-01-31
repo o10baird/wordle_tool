@@ -180,7 +180,6 @@ sharp
 visit
 woods
 walls
-cross
 wings
 grown
 cases
