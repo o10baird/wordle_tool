@@ -312,7 +312,6 @@ occur
 ended
 false
 holes
-apple
 climb
 outer
 pitch
