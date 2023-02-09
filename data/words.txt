@@ -186,7 +186,6 @@ foods
 crops
 fruit
 wants
-stage
 sheep
 nouns
 plain
