@@ -2952,7 +2952,6 @@ trams
 winch
 whirr
 saith
-heady
 harem
 tummy
 sally
