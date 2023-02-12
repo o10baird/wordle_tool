@@ -293,7 +293,6 @@ stock
 hurry
 saved
 sorry
-giant
 trail
 offer
 rough
