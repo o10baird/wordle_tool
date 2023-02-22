@@ -2722,7 +2722,6 @@ meows
 beaus
 dices
 peppy
-riper
 fogey
 gists
 yogas
