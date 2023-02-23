@@ -893,7 +893,6 @@ polio
 loyal
 swell
 salty
-vague
 weave
 mound
 seals
