@@ -923,7 +923,6 @@ files
 pains
 rival
 flats
-syrup
 rodeo
 sands
 moose
